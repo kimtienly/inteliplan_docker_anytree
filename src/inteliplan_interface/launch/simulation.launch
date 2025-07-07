@@ -4,13 +4,13 @@
     <arg name="environment_config" default="table" />
     <arg name="z1_gripper" default="unitree" />
 
-
-
     <include file="$(find anymal_dolly_sim)/launch/sim_z1.launch">
         <arg name="z1_gripper" value="$(arg z1_gripper)" />
         <arg name="environment_data_package" value="$(arg environment_data_package)" />
         <arg name="environment_config" value="$(arg environment_config)" />
     </include>
+
+    <include file="$(find inteliplan_interface)/launch/camera.launch">
 
     <!-- <node pkg="gazebo_ros" type="gzclient" name="gazebo_gui" output="screen"/> -->
     <!-- Launch RViz with custom config -->
