@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<root main_tree_to_execute="MainTree" BTCPP_format="4">
+  <BehaviorTree ID="MainTree">
+    <Sequence>
+      <GoToMotionStateAnymal goal_motion_state="walk"/>
+      <SaySomething message="Transitioned to walk, setting navigation goal"/>
+      <NavigateToGoalAnymal position="2 -2 0.5" orientation="0 0 0 1"/>
+      <SaySomething message="Reached navigation goal, rotating in-place!" />
+      <NavigateToGoalAnymal position="2 -2 0.5" orientation="0 0 1 0"/>
+      <SaySomething message="Done, switching to square_up"/>
+      <GoToMotionStateAnymal goal_motion_state="square_up"/>
+      <SaySomething message="Squared up, going to freeze"/>
+      <GoToMotionStateAnymal goal_motion_state="stand"/>
+    </Sequence>
+  </BehaviorTree>
+</root>
