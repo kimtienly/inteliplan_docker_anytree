@@ -23,7 +23,7 @@ tmux new-window -t $SESSION:3 -n 'random_test'
 tmux select-window -t $SESSION:robot
 
 [ -f $DEVELOPMENT_WS_ROBOT ] && `$_SRC_ENV` && `$CLEAR_PANE`
-tmux send-keys "$PREFIX roslaunch inteliplan_interface simulation_world.launch"
+tmux send-keys "$PREFIX roslaunch inteliplan_interface simulation.launch"
 
 tmux split-window -h
 [ -f $DEVELOPMENT_WS_ROBOT ] && `$_SRC_ENV` && `$CLEAR_PANE`
