@@ -1,0 +1,20 @@
+stack_launcher:
+  nodes:
+    gazebo:
+      preprocessed_params:
+        roslaunch_args:
+          value: --verbose -e ode $(rospack find inteliplan_interface)/configs/table.world
+        roslaunch_env_args_gazebo_model_path:
+          value: $(rospack find inteliplan_interface)/..
+    rqt_gui:
+      preprocessed_params:
+        rviz_display_config:
+          key: /gui/rqt_rviz_widget/display_config
+          value: $(rospack find inteliplan_interface)/configs/anytree_debug.rviz
+
+    # rviz_world_loader:
+    #   preprocessed_params:
+    #     model_paths:
+    #       value: [$(rosparam get /config/general/environment_data_path)/.., /usr/share/gazebo-11/models]
+    #     world_file:
+    #       value: $(rosparam get /config/general/environment_data_path)/worlds/table.world
