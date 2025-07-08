@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="virtual_camera">
+    <static>true</static>
+    <link name="camera_link">
+    <pose>0 0 0 0 0 0</pose>
+      <sensor name="camera_sensor" type="camera">
+        <pose>0.5 0 1.7 3.1416 1.57 3.14</pose>
+        <camera>
+          <horizontal_fov>1.57</horizontal_fov>
+          <image>
+            <width>1280</width>
+            <height>720</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>1000000</far>
+          </clip>
+        </camera>
+        <always_on>true</always_on>
+        <update_rate>30.0</update_rate>
+        <visualize>true</visualize>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30.0</updateRate>
+          <cameraName>camera_top</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+        </plugin>
+      </sensor>
+    </link>
+  </model>
+</sdf>

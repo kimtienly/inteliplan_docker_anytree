@@ -1,0 +1,823 @@
+newmtl handle_0
+illum 0
+d 1
+Ka 0.0 0.0 1.0
+
+newmtl handle_1
+illum 0
+d 1
+Ka 0.0 0.0 0.9
+
+newmtl handle_2
+illum 0
+d 1
+Ka 0.0 0.0 0.8
+
+newmtl handle_3
+illum 0
+d 1
+Ka 0.0 0.1 1.0
+
+newmtl handle_4
+illum 0
+d 1
+Ka 0.0 0.1 0.9
+
+newmtl handle_5
+illum 0
+d 1
+Ka 0.0 0.1 0.8
+
+newmtl handle_6
+illum 0
+d 1
+Ka 0.0 0.2 1.0
+
+newmtl handle_7
+illum 0
+d 1
+Ka 0.0 0.2 0.9
+
+newmtl handle_8
+illum 0
+d 1
+Ka 0.0 0.2 0.8
+
+newmtl handle_9
+illum 0
+d 1
+Ka 0.1 0.0 1.0
+
+newmtl handle_10
+illum 0
+d 1
+Ka 0.1 0.0 0.9
+
+newmtl handle_11
+illum 0
+d 1
+Ka 0.1 0.0 0.8
+
+newmtl handle_12
+illum 0
+d 1
+Ka 0.1 0.1 1.0
+
+newmtl handle_13
+illum 0
+d 1
+Ka 0.1 0.1 0.9
+
+newmtl handle_14
+illum 0
+d 1
+Ka 0.1 0.1 0.8
+
+newmtl handle_15
+illum 0
+d 1
+Ka 0.1 0.2 1.0
+
+newmtl handle_16
+illum 0
+d 1
+Ka 0.1 0.2 0.9
+
+newmtl handle_17
+illum 0
+d 1
+Ka 0.1 0.2 0.8
+
+newmtl handle_18
+illum 0
+d 1
+Ka 0.2 0.0 1.0
+
+newmtl handle_19
+illum 0
+d 1
+Ka 0.2 0.0 0.9
+
+newmtl handle_20
+illum 0
+d 1
+Ka 0.2 0.0 0.8
+
+newmtl handle_21
+illum 0
+d 1
+Ka 0.2 0.1 1.0
+
+newmtl handle_22
+illum 0
+d 1
+Ka 0.2 0.1 0.9
+
+newmtl handle_23
+illum 0
+d 1
+Ka 0.2 0.1 0.8
+
+newmtl handle_24
+illum 0
+d 1
+Ka 0.2 0.2 1.0
+
+newmtl handle_25
+illum 0
+d 1
+Ka 0.2 0.2 0.9
+
+newmtl handle_26
+illum 0
+d 1
+Ka 0.2 0.2 0.8
+
+newmtl drawer_0
+illum 0
+d 1
+Ka 0.0 1.0 0.0
+
+newmtl drawer_1
+illum 0
+d 1
+Ka 0.0 1.0 0.1
+
+newmtl drawer_2
+illum 0
+d 1
+Ka 0.0 1.0 0.2
+
+newmtl drawer_3
+illum 0
+d 1
+Ka 0.0 0.9 0.0
+
+newmtl drawer_4
+illum 0
+d 1
+Ka 0.0 0.9 0.1
+
+newmtl drawer_5
+illum 0
+d 1
+Ka 0.0 0.9 0.2
+
+newmtl drawer_6
+illum 0
+d 1
+Ka 0.0 0.8 0.0
+
+newmtl drawer_7
+illum 0
+d 1
+Ka 0.0 0.8 0.1
+
+newmtl drawer_8
+illum 0
+d 1
+Ka 0.0 0.8 0.2
+
+newmtl drawer_9
+illum 0
+d 1
+Ka 0.1 1.0 0.0
+
+newmtl drawer_10
+illum 0
+d 1
+Ka 0.1 1.0 0.1
+
+newmtl drawer_11
+illum 0
+d 1
+Ka 0.1 1.0 0.2
+
+newmtl drawer_12
+illum 0
+d 1
+Ka 0.1 0.9 0.0
+
+newmtl drawer_13
+illum 0
+d 1
+Ka 0.1 0.9 0.1
+
+newmtl drawer_14
+illum 0
+d 1
+Ka 0.1 0.9 0.2
+
+newmtl drawer_15
+illum 0
+d 1
+Ka 0.1 0.8 0.0
+
+newmtl drawer_16
+illum 0
+d 1
+Ka 0.1 0.8 0.1
+
+newmtl drawer_17
+illum 0
+d 1
+Ka 0.1 0.8 0.2
+
+newmtl drawer_18
+illum 0
+d 1
+Ka 0.2 1.0 0.0
+
+newmtl drawer_19
+illum 0
+d 1
+Ka 0.2 1.0 0.1
+
+newmtl drawer_20
+illum 0
+d 1
+Ka 0.2 1.0 0.2
+
+newmtl drawer_21
+illum 0
+d 1
+Ka 0.2 0.9 0.0
+
+newmtl drawer_22
+illum 0
+d 1
+Ka 0.2 0.9 0.1
+
+newmtl drawer_23
+illum 0
+d 1
+Ka 0.2 0.9 0.2
+
+newmtl drawer_24
+illum 0
+d 1
+Ka 0.2 0.8 0.0
+
+newmtl drawer_25
+illum 0
+d 1
+Ka 0.2 0.8 0.1
+
+newmtl drawer_26
+illum 0
+d 1
+Ka 0.2 0.8 0.2
+
+newmtl door_0
+illum 0
+d 1
+Ka 1.0 0.0 0.0
+
+newmtl door_1
+illum 0
+d 1
+Ka 1.0 0.0 0.1
+
+newmtl door_2
+illum 0
+d 1
+Ka 1.0 0.0 0.2
+
+newmtl door_3
+illum 0
+d 1
+Ka 1.0 0.1 0.0
+
+newmtl door_4
+illum 0
+d 1
+Ka 1.0 0.1 0.1
+
+newmtl door_5
+illum 0
+d 1
+Ka 1.0 0.1 0.2
+
+newmtl door_6
+illum 0
+d 1
+Ka 1.0 0.2 0.0
+
+newmtl door_7
+illum 0
+d 1
+Ka 1.0 0.2 0.1
+
+newmtl door_8
+illum 0
+d 1
+Ka 1.0 0.2 0.2
+
+newmtl door_9
+illum 0
+d 1
+Ka 0.9 0.0 0.0
+
+newmtl door_10
+illum 0
+d 1
+Ka 0.9 0.0 0.1
+
+newmtl door_11
+illum 0
+d 1
+Ka 0.9 0.0 0.2
+
+newmtl door_12
+illum 0
+d 1
+Ka 0.9 0.1 0.0
+
+newmtl door_13
+illum 0
+d 1
+Ka 0.9 0.1 0.1
+
+newmtl door_14
+illum 0
+d 1
+Ka 0.9 0.1 0.2
+
+newmtl door_15
+illum 0
+d 1
+Ka 0.9 0.2 0.0
+
+newmtl door_16
+illum 0
+d 1
+Ka 0.9 0.2 0.1
+
+newmtl door_17
+illum 0
+d 1
+Ka 0.9 0.2 0.2
+
+newmtl door_18
+illum 0
+d 1
+Ka 0.8 0.0 0.0
+
+newmtl door_19
+illum 0
+d 1
+Ka 0.8 0.0 0.1
+
+newmtl door_20
+illum 0
+d 1
+Ka 0.8 0.0 0.2
+
+newmtl door_21
+illum 0
+d 1
+Ka 0.8 0.1 0.0
+
+newmtl door_22
+illum 0
+d 1
+Ka 0.8 0.1 0.1
+
+newmtl door_23
+illum 0
+d 1
+Ka 0.8 0.1 0.2
+
+newmtl door_24
+illum 0
+d 1
+Ka 0.8 0.2 0.0
+
+newmtl door_25
+illum 0
+d 1
+Ka 0.8 0.2 0.1
+
+newmtl door_26
+illum 0
+d 1
+Ka 0.8 0.2 0.2
+
+newmtl lid_0
+illum 0
+d 1
+Ka 1.0 1.0 0.0
+
+newmtl lid_1
+illum 0
+d 1
+Ka 1.0 1.0 0.1
+
+newmtl lid_2
+illum 0
+d 1
+Ka 1.0 1.0 0.2
+
+newmtl lid_3
+illum 0
+d 1
+Ka 1.0 0.9 0.0
+
+newmtl lid_4
+illum 0
+d 1
+Ka 1.0 0.9 0.1
+
+newmtl lid_5
+illum 0
+d 1
+Ka 1.0 0.9 0.2
+
+newmtl lid_6
+illum 0
+d 1
+Ka 1.0 0.8 0.0
+
+newmtl lid_7
+illum 0
+d 1
+Ka 1.0 0.8 0.1
+
+newmtl lid_8
+illum 0
+d 1
+Ka 1.0 0.8 0.2
+
+newmtl lid_9
+illum 0
+d 1
+Ka 0.9 1.0 0.0
+
+newmtl lid_10
+illum 0
+d 1
+Ka 0.9 1.0 0.1
+
+newmtl lid_11
+illum 0
+d 1
+Ka 0.9 1.0 0.2
+
+newmtl lid_12
+illum 0
+d 1
+Ka 0.9 0.9 0.0
+
+newmtl lid_13
+illum 0
+d 1
+Ka 0.9 0.9 0.1
+
+newmtl lid_14
+illum 0
+d 1
+Ka 0.9 0.9 0.2
+
+newmtl lid_15
+illum 0
+d 1
+Ka 0.9 0.8 0.0
+
+newmtl lid_16
+illum 0
+d 1
+Ka 0.9 0.8 0.1
+
+newmtl lid_17
+illum 0
+d 1
+Ka 0.9 0.8 0.2
+
+newmtl lid_18
+illum 0
+d 1
+Ka 0.8 1.0 0.0
+
+newmtl lid_19
+illum 0
+d 1
+Ka 0.8 1.0 0.1
+
+newmtl lid_20
+illum 0
+d 1
+Ka 0.8 1.0 0.2
+
+newmtl lid_21
+illum 0
+d 1
+Ka 0.8 0.9 0.0
+
+newmtl lid_22
+illum 0
+d 1
+Ka 0.8 0.9 0.1
+
+newmtl lid_23
+illum 0
+d 1
+Ka 0.8 0.9 0.2
+
+newmtl lid_24
+illum 0
+d 1
+Ka 0.8 0.8 0.0
+
+newmtl lid_25
+illum 0
+d 1
+Ka 0.8 0.8 0.1
+
+newmtl lid_26
+illum 0
+d 1
+Ka 0.8 0.8 0.2
+
+newmtl surface_0
+illum 0
+d 1
+Ka 0.0 1.0 1.0
+
+newmtl surface_1
+illum 0
+d 1
+Ka 0.0 1.0 0.9
+
+newmtl surface_2
+illum 0
+d 1
+Ka 0.0 1.0 0.8
+
+newmtl surface_3
+illum 0
+d 1
+Ka 0.0 0.9 1.0
+
+newmtl surface_4
+illum 0
+d 1
+Ka 0.0 0.9 0.9
+
+newmtl surface_5
+illum 0
+d 1
+Ka 0.0 0.9 0.8
+
+newmtl surface_6
+illum 0
+d 1
+Ka 0.0 0.8 1.0
+
+newmtl surface_7
+illum 0
+d 1
+Ka 0.0 0.8 0.9
+
+newmtl surface_8
+illum 0
+d 1
+Ka 0.0 0.8 0.8
+
+newmtl surface_9
+illum 0
+d 1
+Ka 0.1 1.0 1.0
+
+newmtl surface_10
+illum 0
+d 1
+Ka 0.1 1.0 0.9
+
+newmtl surface_11
+illum 0
+d 1
+Ka 0.1 1.0 0.8
+
+newmtl surface_12
+illum 0
+d 1
+Ka 0.1 0.9 1.0
+
+newmtl surface_13
+illum 0
+d 1
+Ka 0.1 0.9 0.9
+
+newmtl surface_14
+illum 0
+d 1
+Ka 0.1 0.9 0.8
+
+newmtl surface_15
+illum 0
+d 1
+Ka 0.1 0.8 1.0
+
+newmtl surface_16
+illum 0
+d 1
+Ka 0.1 0.8 0.9
+
+newmtl surface_17
+illum 0
+d 1
+Ka 0.1 0.8 0.8
+
+newmtl surface_18
+illum 0
+d 1
+Ka 0.2 1.0 1.0
+
+newmtl surface_19
+illum 0
+d 1
+Ka 0.2 1.0 0.9
+
+newmtl surface_20
+illum 0
+d 1
+Ka 0.2 1.0 0.8
+
+newmtl surface_21
+illum 0
+d 1
+Ka 0.2 0.9 1.0
+
+newmtl surface_22
+illum 0
+d 1
+Ka 0.2 0.9 0.9
+
+newmtl surface_23
+illum 0
+d 1
+Ka 0.2 0.9 0.8
+
+newmtl surface_24
+illum 0
+d 1
+Ka 0.2 0.8 1.0
+
+newmtl surface_25
+illum 0
+d 1
+Ka 0.2 0.8 0.9
+
+newmtl surface_26
+illum 0
+d 1
+Ka 0.2 0.8 0.8
+
+newmtl controls_0
+illum 0
+d 1
+Ka 1.0 0.0 1.0
+
+newmtl controls_1
+illum 0
+d 1
+Ka 1.0 0.0 0.9
+
+newmtl controls_2
+illum 0
+d 1
+Ka 1.0 0.0 0.8
+
+newmtl controls_3
+illum 0
+d 1
+Ka 1.0 0.1 1.0
+
+newmtl controls_4
+illum 0
+d 1
+Ka 1.0 0.1 0.9
+
+newmtl controls_5
+illum 0
+d 1
+Ka 1.0 0.1 0.8
+
+newmtl controls_6
+illum 0
+d 1
+Ka 1.0 0.2 1.0
+
+newmtl controls_7
+illum 0
+d 1
+Ka 1.0 0.2 0.9
+
+newmtl controls_8
+illum 0
+d 1
+Ka 1.0 0.2 0.8
+
+newmtl controls_9
+illum 0
+d 1
+Ka 0.9 0.0 1.0
+
+newmtl controls_10
+illum 0
+d 1
+Ka 0.9 0.0 0.9
+
+newmtl controls_11
+illum 0
+d 1
+Ka 0.9 0.0 0.8
+
+newmtl controls_12
+illum 0
+d 1
+Ka 0.9 0.1 1.0
+
+newmtl controls_13
+illum 0
+d 1
+Ka 0.9 0.1 0.9
+
+newmtl controls_14
+illum 0
+d 1
+Ka 0.9 0.1 0.8
+
+newmtl controls_15
+illum 0
+d 1
+Ka 0.9 0.2 1.0
+
+newmtl controls_16
+illum 0
+d 1
+Ka 0.9 0.2 0.9
+
+newmtl controls_17
+illum 0
+d 1
+Ka 0.9 0.2 0.8
+
+newmtl controls_18
+illum 0
+d 1
+Ka 0.8 0.0 1.0
+
+newmtl controls_19
+illum 0
+d 1
+Ka 0.8 0.0 0.9
+
+newmtl controls_20
+illum 0
+d 1
+Ka 0.8 0.0 0.8
+
+newmtl controls_21
+illum 0
+d 1
+Ka 0.8 0.1 1.0
+
+newmtl controls_22
+illum 0
+d 1
+Ka 0.8 0.1 0.9
+
+newmtl controls_23
+illum 0
+d 1
+Ka 0.8 0.1 0.8
+
+newmtl controls_24
+illum 0
+d 1
+Ka 0.8 0.2 1.0
+
+newmtl controls_25
+illum 0
+d 1
+Ka 0.8 0.2 0.9
+
+newmtl controls_26
+illum 0
+d 1
+Ka 0.8 0.2 0.8
+
+newmtl glass
+Ka 0.0000 0.0000 0.0000
+Kd 0.0000 0.0000 0.0000
+Ks 0.0000 0.0000 0.0000
+d 0.0000
+Ns 200
+illum 4
+
+newmtl default
+illum 0
+d 1
+Ka 0.0 0.0 0.0
+

@@ -118,7 +118,7 @@ fabric.properties
 
 
 **/trained_*/
-**/models/
+**/inteliplan_interface/models/
 **/checkpoints/
 **/results*/
 
