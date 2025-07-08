@@ -10,9 +10,9 @@
         <arg name="environment_config" value="$(arg environment_config)" />
     </include>
 
-    <include file="$(find inteliplan_interface)/launch/camera.launch">
+    <include file="$(find inteliplan_interface)/launch/camera.launch"/>
 
     <!-- <node pkg="gazebo_ros" type="gzclient" name="gazebo_gui" output="screen"/> -->
     <!-- Launch RViz with custom config -->
-    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find inteliplane_interface)/configs/anytree_debug.rviz" /> -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find inteliplan_interface)/configs/anytree_debug.rviz" />
 </launch>

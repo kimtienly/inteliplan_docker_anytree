@@ -1,0 +1,1747 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /TF1/Frames1
+        - /World1/Visual1
+        - /ANYmal1
+        - /Vision1
+      Splitter Ratio: 0.6490727663040161
+    Tree Height: 1231
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /Interact1
+      - /2D Nav Goal1
+      - /Center Frame1
+    Name: Tool Properties
+    Splitter Ratio: 0.5886790156364441
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+      - /Current View1/Focal Point1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Name: Time
+    SyncMode: 0
+    SyncSource: Top View
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Displays
+    Help Height: 138
+    Name: Displays
+    Property Tree Widget:
+      Expanded: ~
+      Splitter Ratio: 0.5
+    Tree Height: 203
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.10000000149011612
+      Cell Size: 0.25
+      Class: rviz/Grid
+      Color: 0; 0; 0
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 100
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        LF_FOOT:
+          Value: false
+        LF_HAA_drive:
+          Value: false
+        LF_HFE_drive:
+          Value: false
+        LF_HFE_output:
+          Value: false
+        LF_HIP:
+          Value: false
+        LF_KFE_drive:
+          Value: false
+        LF_SHANK:
+          Value: false
+        LF_THIGH:
+          Value: false
+        LF_hip_fixed:
+          Value: false
+        LF_shank_fixed:
+          Value: false
+        LF_thigh_fixed:
+          Value: false
+        LH_FOOT:
+          Value: false
+        LH_HAA_drive:
+          Value: false
+        LH_HFE_drive:
+          Value: false
+        LH_HFE_output:
+          Value: false
+        LH_HIP:
+          Value: false
+        LH_KFE_drive:
+          Value: false
+        LH_SHANK:
+          Value: false
+        LH_THIGH:
+          Value: false
+        LH_hip_fixed:
+          Value: false
+        LH_shank_fixed:
+          Value: false
+        LH_thigh_fixed:
+          Value: false
+        RF_FOOT:
+          Value: false
+        RF_HAA_drive:
+          Value: false
+        RF_HFE_drive:
+          Value: false
+        RF_HFE_output:
+          Value: false
+        RF_HIP:
+          Value: false
+        RF_KFE_drive:
+          Value: false
+        RF_SHANK:
+          Value: false
+        RF_THIGH:
+          Value: false
+        RF_hip_fixed:
+          Value: false
+        RF_shank_fixed:
+          Value: false
+        RF_thigh_fixed:
+          Value: false
+        RH_FOOT:
+          Value: false
+        RH_HAA_drive:
+          Value: false
+        RH_HFE_drive:
+          Value: false
+        RH_HFE_output:
+          Value: false
+        RH_HIP:
+          Value: false
+        RH_KFE_drive:
+          Value: false
+        RH_SHANK:
+          Value: false
+        RH_THIGH:
+          Value: false
+        RH_hip_fixed:
+          Value: false
+        RH_shank_fixed:
+          Value: false
+        RH_thigh_fixed:
+          Value: false
+        airplane_0:
+          Value: true
+        apple_0:
+          Value: true
+        base:
+          Value: false
+        base_inertia:
+          Value: false
+        battery:
+          Value: false
+        bird_0:
+          Value: true
+        body_top:
+          Value: false
+        bottle_0:
+          Value: true
+        bottom_shell:
+          Value: false
+        carrot_0:
+          Value: true
+        cup_0:
+          Value: true
+        depth_camera_front_lower_camera:
+          Value: false
+        depth_camera_front_lower_camera_parent:
+          Value: false
+        depth_camera_front_lower_depth_frame:
+          Value: false
+        depth_camera_front_lower_depth_optical_frame:
+          Value: false
+        depth_camera_front_upper_camera:
+          Value: false
+        depth_camera_front_upper_camera_parent:
+          Value: false
+        depth_camera_front_upper_depth_frame:
+          Value: false
+        depth_camera_front_upper_depth_optical_frame:
+          Value: false
+        depth_camera_left_camera:
+          Value: false
+        depth_camera_left_camera_parent:
+          Value: false
+        depth_camera_left_depth_frame:
+          Value: false
+        depth_camera_left_depth_optical_frame:
+          Value: false
+        depth_camera_rear_lower_camera:
+          Value: false
+        depth_camera_rear_lower_camera_parent:
+          Value: false
+        depth_camera_rear_lower_depth_frame:
+          Value: false
+        depth_camera_rear_lower_depth_optical_frame:
+          Value: false
+        depth_camera_rear_upper_camera:
+          Value: false
+        depth_camera_rear_upper_camera_parent:
+          Value: false
+        depth_camera_rear_upper_depth_frame:
+          Value: false
+        depth_camera_rear_upper_depth_optical_frame:
+          Value: false
+        depth_camera_right_camera:
+          Value: false
+        depth_camera_right_camera_parent:
+          Value: false
+        depth_camera_right_depth_frame:
+          Value: false
+        depth_camera_right_depth_optical_frame:
+          Value: false
+        dining_table_0:
+          Value: false
+        docking_socket:
+          Value: false
+        end_effector:
+          Value: true
+        face_front:
+          Value: false
+        face_rear:
+          Value: false
+        face_shell_front:
+          Value: false
+        face_shell_rear:
+          Value: false
+        feetcenter:
+          Value: false
+        footprint:
+          Value: false
+        grasp_pose:
+          Value: true
+        gripperMover:
+          Value: false
+        gripperStator:
+          Value: false
+        hatch_shell:
+          Value: false
+        hatch_z1_support:
+          Value: false
+        hbc_receiver:
+          Value: false
+        imu_link:
+          Value: false
+        knife_0:
+          Value: true
+        lidar:
+          Value: false
+        lidar_parent:
+          Value: false
+        lift_pose:
+          Value: true
+        link00:
+          Value: true
+        link01:
+          Value: false
+        link02:
+          Value: false
+        link03:
+          Value: false
+        link04:
+          Value: false
+        link05:
+          Value: false
+        link06:
+          Value: false
+        map:
+          Value: true
+        odom:
+          Value: false
+        point_cloud_odom:
+          Value: false
+        pre_grasp_pose:
+          Value: true
+        scissors_0:
+          Value: true
+        snowboard_0:
+          Value: true
+        sports_ball_0:
+          Value: true
+        stop_sign_0:
+          Value: true
+        suitcase_0:
+          Value: true
+        surfboard_0:
+          Value: true
+        toilet_0:
+          Value: true
+        top_shell:
+          Value: false
+        traffic_light_0:
+          Value: true
+        umbrella_0:
+          Value: true
+        vase_0:
+          Value: true
+        wide_angle_camera_front_camera:
+          Value: false
+        wide_angle_camera_front_camera_parent:
+          Value: false
+        wide_angle_camera_rear_camera:
+          Value: false
+        wide_angle_camera_rear_camera_parent:
+          Value: false
+        world:
+          Value: false
+        z1/wrist_camera_accel_frame:
+          Value: false
+        z1/wrist_camera_accel_optical_frame:
+          Value: false
+        z1/wrist_camera_bottom_screw_frame:
+          Value: false
+        z1/wrist_camera_color_frame:
+          Value: false
+        z1/wrist_camera_color_optical_frame:
+          Value: false
+        z1/wrist_camera_depth_frame:
+          Value: false
+        z1/wrist_camera_depth_optical_frame:
+          Value: false
+        z1/wrist_camera_gyro_frame:
+          Value: false
+        z1/wrist_camera_gyro_optical_frame:
+          Value: false
+        z1/wrist_camera_infra1_frame:
+          Value: false
+        z1/wrist_camera_infra1_optical_frame:
+          Value: false
+        z1/wrist_camera_infra2_frame:
+          Value: false
+        z1/wrist_camera_infra2_optical_frame:
+          Value: false
+        z1/wrist_camera_link:
+          Value: false
+        z1_mount:
+          Value: false
+        z1_realsense_mount:
+          Value: false
+      Marker Alpha: 1
+      Marker Scale: 0.25
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        odom:
+          base:
+            LF_HAA_drive:
+              LF_HIP:
+                LF_hip_fixed:
+                  LF_HFE_output:
+                    LF_THIGH:
+                      LF_HFE_drive:
+                        LF_thigh_fixed:
+                          LF_KFE_drive:
+                            LF_SHANK:
+                              LF_shank_fixed:
+                                LF_FOOT:
+                                  {}
+            LH_HAA_drive:
+              LH_HIP:
+                LH_hip_fixed:
+                  LH_HFE_output:
+                    LH_THIGH:
+                      LH_HFE_drive:
+                        LH_thigh_fixed:
+                          LH_KFE_drive:
+                            LH_SHANK:
+                              LH_shank_fixed:
+                                LH_FOOT:
+                                  {}
+            RF_HAA_drive:
+              RF_HIP:
+                RF_hip_fixed:
+                  RF_HFE_output:
+                    RF_THIGH:
+                      RF_HFE_drive:
+                        RF_thigh_fixed:
+                          RF_KFE_drive:
+                            RF_SHANK:
+                              RF_shank_fixed:
+                                RF_FOOT:
+                                  {}
+            RH_HAA_drive:
+              RH_HIP:
+                RH_hip_fixed:
+                  RH_HFE_output:
+                    RH_THIGH:
+                      RH_HFE_drive:
+                        RH_thigh_fixed:
+                          RH_KFE_drive:
+                            RH_SHANK:
+                              RH_shank_fixed:
+                                RH_FOOT:
+                                  {}
+            base_inertia:
+              {}
+            battery:
+              {}
+            body_top:
+              {}
+            bottom_shell:
+              {}
+            depth_camera_left_camera:
+              depth_camera_left_camera_parent:
+                depth_camera_left_depth_frame:
+                  depth_camera_left_depth_optical_frame:
+                    {}
+            depth_camera_right_camera:
+              depth_camera_right_camera_parent:
+                depth_camera_right_depth_frame:
+                  depth_camera_right_depth_optical_frame:
+                    {}
+            docking_socket:
+              {}
+            face_front:
+              depth_camera_front_lower_camera:
+                depth_camera_front_lower_camera_parent:
+                  depth_camera_front_lower_depth_frame:
+                    depth_camera_front_lower_depth_optical_frame:
+                      {}
+              depth_camera_front_upper_camera:
+                depth_camera_front_upper_camera_parent:
+                  depth_camera_front_upper_depth_frame:
+                    depth_camera_front_upper_depth_optical_frame:
+                      {}
+              face_shell_front:
+                {}
+              wide_angle_camera_front_camera:
+                wide_angle_camera_front_camera_parent:
+                  {}
+            face_rear:
+              depth_camera_rear_lower_camera:
+                depth_camera_rear_lower_camera_parent:
+                  depth_camera_rear_lower_depth_frame:
+                    depth_camera_rear_lower_depth_optical_frame:
+                      {}
+              depth_camera_rear_upper_camera:
+                depth_camera_rear_upper_camera_parent:
+                  depth_camera_rear_upper_depth_frame:
+                    depth_camera_rear_upper_depth_optical_frame:
+                      {}
+              face_shell_rear:
+                {}
+              wide_angle_camera_rear_camera:
+                wide_angle_camera_rear_camera_parent:
+                  {}
+            hatch_shell:
+              {}
+            hatch_z1_support:
+              z1_mount:
+                link00:
+                  grasp_pose:
+                    {}
+                  lift_pose:
+                    {}
+                  link01:
+                    link02:
+                      link03:
+                        link04:
+                          link05:
+                            link06:
+                              gripperStator:
+                                end_effector:
+                                  {}
+                                gripperMover:
+                                  {}
+                              z1_realsense_mount:
+                                z1/wrist_camera_bottom_screw_frame:
+                                  z1/wrist_camera_link:
+                                    z1/wrist_camera_accel_frame:
+                                      z1/wrist_camera_accel_optical_frame:
+                                        {}
+                                    z1/wrist_camera_color_frame:
+                                      z1/wrist_camera_color_optical_frame:
+                                        {}
+                                    z1/wrist_camera_depth_frame:
+                                      z1/wrist_camera_depth_optical_frame:
+                                        airplane_0:
+                                          {}
+                                        apple_0:
+                                          {}
+                                        bird_0:
+                                          {}
+                                        bottle_0:
+                                          {}
+                                        carrot_0:
+                                          {}
+                                        cup_0:
+                                          {}
+                                        dining_table_0:
+                                          {}
+                                        knife_0:
+                                          {}
+                                        scissors_0:
+                                          {}
+                                        snowboard_0:
+                                          {}
+                                        sports_ball_0:
+                                          {}
+                                        stop_sign_0:
+                                          {}
+                                        suitcase_0:
+                                          {}
+                                        surfboard_0:
+                                          {}
+                                        toilet_0:
+                                          {}
+                                        traffic_light_0:
+                                          {}
+                                        umbrella_0:
+                                          {}
+                                        vase_0:
+                                          {}
+                                    z1/wrist_camera_gyro_frame:
+                                      z1/wrist_camera_gyro_optical_frame:
+                                        {}
+                                    z1/wrist_camera_infra1_frame:
+                                      z1/wrist_camera_infra1_optical_frame:
+                                        {}
+                                    z1/wrist_camera_infra2_frame:
+                                      z1/wrist_camera_infra2_optical_frame:
+                                        {}
+                  pre_grasp_pose:
+                    {}
+            hbc_receiver:
+              {}
+            imu_link:
+              {}
+            lidar_parent:
+              lidar:
+                {}
+            top_shell:
+              {}
+          feetcenter:
+            {}
+          footprint:
+            {}
+          map:
+            {}
+          point_cloud_odom:
+            {}
+          world:
+            {}
+      Update Interval: 0
+      Value: true
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /rviz_world_loader/markers_visual
+          Name: Visual
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: true
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /rviz_world_loader/markers_collision
+          Name: Collision
+          Namespaces:
+            {}
+          Queue Size: 0
+          Value: false
+      Enabled: false
+      Name: World
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: rviz/RobotModel
+          Collision Enabled: false
+          Enabled: true
+          Links:
+            All Links Enabled: true
+            Expand Joint Details: false
+            Expand Link Details: false
+            Expand Tree: false
+            LF_FOOT:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LF_HAA_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LF_HFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LF_HFE_output:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LF_HIP:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LF_KFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LF_SHANK:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LF_THIGH:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LF_hip_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LF_shank_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LF_thigh_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_FOOT:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_HAA_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_HFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_HFE_output:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LH_HIP:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LH_KFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_SHANK:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LH_THIGH:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            LH_hip_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_shank_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            LH_thigh_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            Link Tree Style: Links in Alphabetic Order
+            RF_FOOT:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RF_HAA_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RF_HFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RF_HFE_output:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RF_HIP:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RF_KFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RF_SHANK:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RF_THIGH:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RF_hip_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RF_shank_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RF_thigh_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_FOOT:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_HAA_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_HFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_HFE_output:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RH_HIP:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RH_KFE_drive:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_SHANK:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RH_THIGH:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            RH_hip_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_shank_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            RH_thigh_fixed:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            base:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            base_inertia:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            battery:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            body_top:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            bottom_shell:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            depth_camera_front_lower_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_lower_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_lower_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_lower_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_upper_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_upper_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_upper_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_front_upper_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_left_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_left_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_left_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_left_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_lower_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_lower_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_lower_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_lower_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_upper_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_upper_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_upper_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_rear_upper_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_right_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_right_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_right_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            depth_camera_right_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            docking_socket:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            end_effector:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            face_front:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            face_rear:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            face_shell_front:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            face_shell_rear:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            gripperMover:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            gripperStator:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            hatch_shell:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            hatch_z1_support:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            hbc_receiver:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            imu_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            lidar:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            lidar_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            link00:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link01:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link02:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link03:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link04:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link05:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            link06:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            top_shell:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            wide_angle_camera_front_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            wide_angle_camera_front_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            wide_angle_camera_rear_camera:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            wide_angle_camera_rear_camera_parent:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_accel_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_accel_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_bottom_screw_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_color_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_color_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_depth_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_depth_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_gyro_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_gyro_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_infra1_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_infra1_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_infra2_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_infra2_optical_frame:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1/wrist_camera_link:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+            z1_mount:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+            z1_realsense_mount:
+              Alpha: 1
+              Show Axes: false
+              Show Trail: false
+              Value: true
+          Name: RobotModel
+          Robot Description: anymal_description
+          TF Prefix: ""
+          Update Interval: 0
+          Value: true
+          Visual Enabled: true
+        - Class: rviz/InteractiveMarkers
+          Enable Transparency: true
+          Enabled: false
+          Name: Interactive Marker
+          Show Axes: true
+          Show Descriptions: true
+          Show Visual Aids: false
+          Update Topic: /interaction_marker/update
+          Value: false
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 0; 255
+          Color Transformer: FlatColor
+          Decay Time: 0.25
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Interactive Marker Point Cloud
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: false
+          Size (Pixels): 3
+          Size (m): 0.07500000298023224
+          Style: Flat Squares
+          Topic: /slam_supervisor/marker_cloud
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+      Enabled: true
+      Name: ANYmal
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Class: any_navigation_rviz_plugins/Path
+          Color: 64; 104; 225
+          Enabled: true
+          Font Size: 0.05000000074505806
+          History Length: 1
+          Name: Active Path
+          Queue Size: 10
+          Rotational Tol: true
+          Show Caption: false
+          Size: 0.3499999940395355
+          Topic: /path_planning_and_following/active_path
+          Translation Tol: true
+          Unreliable: false
+          Use Traversability As Color: false
+          Value: true
+        - Alpha: 1
+          Class: any_navigation_rviz_plugins/Path
+          Color: 237; 145; 33
+          Enabled: true
+          Font Size: 0.05000000074505806
+          History Length: 1
+          Name: Planned Path
+          Queue Size: 10
+          Rotational Tol: true
+          Show Caption: false
+          Size: 0.20000000298023224
+          Topic: /path_planning_and_following/planned_path
+          Translation Tol: true
+          Unreliable: false
+          Use Traversability As Color: false
+          Value: true
+        - Alpha: 1
+          Class: any_navigation_rviz_plugins/Path
+          Color: 151; 38; 189
+          Enabled: false
+          Font Size: 0.05000000074505806
+          History Length: 1
+          Name: Global Plan
+          Queue Size: 10
+          Rotational Tol: true
+          Show Caption: false
+          Size: 0.3499999940395355
+          Topic: /path_planning_and_following/waypoints_planner/global_plan
+          Translation Tol: true
+          Unreliable: false
+          Use Traversability As Color: false
+          Value: false
+        - Add yaw to z: false
+          Alpha: 1
+          Class: navigation_pose_graph_rviz_plugins/PoseGraph
+          Color: 78; 154; 6
+          Enabled: true
+          Font Size: 0.05000000074505806
+          History Length: 1
+          Name: Waypoints Graph
+          Queue Size: 10
+          Rotational Tol: false
+          Show Caption: false
+          Size: 0.10000000149011612
+          Topic: /path_planning_and_following/global_waypoints_manager/waypoints
+          Translation Tol: false
+          Unreliable: false
+          Use Traversability As Color: false
+          Value: true
+        - Add yaw to z: false
+          Alpha: 1
+          Class: navigation_pose_graph_rviz_plugins/PoseGraph
+          Color: 78; 154; 6
+          Enabled: false
+          Font Size: 0.05000000074505806
+          History Length: 1
+          Name: Path Planner Waypoints Graph
+          Queue Size: 10
+          Rotational Tol: false
+          Show Caption: false
+          Size: 0.10000000149011612
+          Topic: /path_planning_and_following/waypoints_planner/planner_waypoints
+          Translation Tol: false
+          Unreliable: false
+          Use Traversability As Color: true
+          Value: false
+        - Alpha: 0.699999988079071
+          Class: rviz/Map
+          Color Scheme: map
+          Draw Behind: false
+          Enabled: false
+          Name: Path Follower Costmap
+          Topic: /path_planning_and_following/costmap
+          Unreliable: false
+          Use Timestamp: false
+          Value: false
+        - Alpha: 1
+          Arrow Length: 0.30000001192092896
+          Axes Length: 0.30000001192092896
+          Axes Radius: 0.009999999776482582
+          Class: rviz/PoseArray
+          Color: 255; 25; 0
+          Enabled: false
+          Head Length: 0.019999999552965164
+          Head Radius: 0.03500000014901161
+          Name: Path Follower Trajectory
+          Queue Size: 10
+          Shaft Length: 0.05000000074505806
+          Shaft Radius: 0.014999999664723873
+          Shape: Arrow (3D)
+          Topic: /path_planning_and_following/trajectory_poses
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Buffer Length: 1
+          Class: rviz/Path
+          Color: 25; 255; 0
+          Enabled: false
+          Head Diameter: 0.05999999865889549
+          Head Length: 0.03999999910593033
+          Length: 0.30000001192092896
+          Line Style: Lines
+          Line Width: 0.029999999329447746
+          Name: Path Follower Global Path
+          Offset:
+            X: 0
+            Y: 0
+            Z: 0
+          Pose Color: 255; 85; 255
+          Pose Style: Arrows
+          Queue Size: 10
+          Radius: 0.029999999329447746
+          Shaft Diameter: 0.019999999552965164
+          Shaft Length: 0.05000000074505806
+          Topic: /path_planning_and_following/global_plan
+          Unreliable: false
+          Value: false
+        - Alpha: 1
+          Axes Length: 1
+          Axes Radius: 0.10000000149011612
+          Class: rviz/Pose
+          Color: 245; 121; 0
+          Enabled: false
+          Head Length: 0.029999999329447746
+          Head Radius: 0.03999999910593033
+          Name: Path Follower Initial Rotation Marker
+          Queue Size: 10
+          Shaft Length: 0.10000000149011612
+          Shaft Radius: 0.019999999552965164
+          Shape: Arrow
+          Topic: /path_planning_and_following/initial_rotation_marker
+          Unreliable: false
+          Value: false
+        - Class: rviz/Marker
+          Enabled: false
+          Marker Topic: /path_planning_and_following/markers
+          Name: Path Follower Markers
+          Namespaces:
+            {}
+          Queue Size: 1
+          Value: false
+        - Class: rviz/MarkerArray
+          Enabled: false
+          Marker Topic: /path_planning_and_following/feasibility_footprint
+          Name: Feasibility Footprint
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: false
+        - Class: rviz/Group
+          Displays:
+            - Alpha: 1
+              Autocompute Intensity Bounds: true
+              Class: grid_map_rviz_plugin/GridMap
+              Color: 200; 200; 200
+              Color Layer: elevation
+              Color Transformer: GridMapLayer
+              ColorMap: default
+              Enabled: true
+              Grid Cell Decimation: 1
+              Grid Line Thickness: 0.10000000149011612
+              Height Layer: elevation
+              Height Transformer: GridMapLayer
+              History Length: 1
+              Invert ColorMap: false
+              Max Color: 255; 255; 255
+              Max Intensity: 10
+              Min Color: 0; 0; 0
+              Min Intensity: 0
+              Name: Obstacle map
+              Show Grid Lines: true
+              Topic: /path_planning_and_following/global_replanning/obstacle_map
+              Unreliable: false
+              Use ColorMap: true
+              Value: true
+            - Add yaw to z: false
+              Alpha: 1
+              Class: navigation_pose_graph_rviz_plugins/PoseGraph
+              Color: 78; 154; 6
+              Enabled: false
+              Font Size: 0.05000000074505806
+              History Length: 1
+              Name: Input pose graph
+              Queue Size: 1
+              Rotational Tol: false
+              Show Caption: false
+              Size: 0.10000000149011612
+              Topic: /path_planning_and_following/global_replanning/input_pose_graph
+              Translation Tol: false
+              Unreliable: false
+              Use Traversability As Color: true
+              Value: false
+            - Add yaw to z: false
+              Alpha: 1
+              Class: navigation_pose_graph_rviz_plugins/PoseGraph
+              Color: 78; 154; 6
+              Enabled: true
+              Font Size: 0.05000000074505806
+              History Length: 1
+              Name: Output pose graph
+              Queue Size: 1
+              Rotational Tol: false
+              Show Caption: false
+              Size: 0.10000000149011612
+              Topic: /path_planning_and_following/global_replanning/output_pose_graph
+              Translation Tol: false
+              Unreliable: false
+              Use Traversability As Color: true
+              Value: true
+          Enabled: false
+          Name: Global Replanning
+        - Class: rviz/Group
+          Displays:
+            - Alpha: 1
+              Class: collision_filter_rviz_plugin/Obstacles
+              Enabled: true
+              Footprint Topic: /collision_filter/footprint
+              Map Topic: /collision_filter/map
+              Name: Obstacles
+              Obstacle Layer: obstacle
+              Robot Frame: base
+              Unreliable: false
+              Value: true
+          Enabled: true
+          Name: Remote Operation
+      Enabled: true
+      Name: Path Planning and Following
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/InteractiveMarkers
+          Enable Transparency: true
+          Enabled: true
+          Name: Environment
+          Show Axes: false
+          Show Descriptions: true
+          Show Visual Aids: false
+          Update Topic: /environment_visualizer/update
+          Value: true
+        - Alpha: 1
+          Class: any_navigation_rviz_plugins/Path
+          Color: 134; 164; 255
+          Enabled: true
+          Font Size: 0.05000000074505806
+          History Length: 1
+          Name: Path Preview
+          Queue Size: 10
+          Rotational Tol: true
+          Show Caption: false
+          Size: 0.25
+          Topic: /rqt_mission_execution/path_preview
+          Translation Tol: true
+          Unreliable: false
+          Use Traversability As Color: false
+          Value: true
+      Enabled: true
+      Name: Mission
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/MarkerArray
+          Enabled: true
+          Marker Topic: /inspection_setup/markers
+          Name: Inspection Setup Markers
+          Namespaces:
+            {}
+          Queue Size: 1
+          Value: true
+      Enabled: false
+      Name: Inspection
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/InteractiveMarkers
+          Enable Transparency: true
+          Enabled: true
+          Name: InteractiveMarkers
+          Show Axes: false
+          Show Descriptions: true
+          Show Visual Aids: false
+          Update Topic: /interactive_waypoints/update
+          Value: true
+      Enabled: false
+      Name: Waypoints Editor
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 0.5
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 2.019165277481079
+            Min Value: -0.01582673192024231
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: AxisColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Input Point Cloud
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: true
+          Size (Pixels): 1
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic: /slam_maps_transformer/map
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 0.5
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 2.019165277481079
+            Min Value: -0.01582673192024231
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: AxisColor
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Transformed Point Cloud
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: false
+          Size (Pixels): 1
+          Size (m): 1
+          Style: Points
+          Topic: /slam_maps_transformer/map_transformed
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Points in Plane XY
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: true
+          Size (Pixels): 25
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic: /slam_maps_transformer/points_in_plane_xy
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Points in Plane XZ
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: true
+          Size (Pixels): 25
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic: /slam_maps_transformer/points_in_plane_xz
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Points in Plane YZ
+          Position Transformer: XYZ
+          Queue Size: 1
+          Selectable: true
+          Size (Pixels): 25
+          Size (m): 0.009999999776482582
+          Style: Points
+          Topic: /slam_maps_transformer/points_in_plane_yz
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Alpha: 1
+          Class: rviz/Axes
+          Enabled: true
+          Length: 1
+          Name: Axes
+          Radius: 0.10000000149011612
+          Reference Frame: <Fixed Frame>
+          Show Trail: false
+          Value: true
+      Enabled: false
+      Name: SLAM Maps Transformer
+    - Class: rviz/Group
+      Displays:
+        - Alpha: 1
+          Autocompute Intensity Bounds: true
+          Autocompute Value Bounds:
+            Max Value: 10
+            Min Value: -10
+            Value: true
+          Axis: Z
+          Channel Name: intensity
+          Class: rviz/PointCloud2
+          Color: 255; 255; 255
+          Color Transformer: RGB8
+          Decay Time: 0
+          Enabled: true
+          Invert Rainbow: false
+          Max Color: 255; 255; 255
+          Min Color: 0; 0; 0
+          Name: Wrist Camera RGBD
+          Position Transformer: XYZ
+          Queue Size: 10
+          Selectable: true
+          Size (Pixels): 3
+          Size (m): 0.009999999776482582
+          Style: Flat Squares
+          Topic: /z1/wrist_camera/depth/color/points
+          Unreliable: false
+          Use Fixed Frame: true
+          Use rainbow: true
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /z1/wrist_camera/color/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Wrist Camera Image
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /camera_top/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Top View
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /vision/bbox_image
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Object Detection
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
+      Enabled: true
+      Name: Vision
+  Enabled: true
+  Global Options:
+    Background Color: 238; 238; 236
+    Default Light: true
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Theta std deviation: 0.2617993950843811
+      Topic: /initialpose
+      X std deviation: 0.5
+      Y std deviation: 0.5
+    - Class: rviz/SetGoal
+      Topic: /goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+    - Class: center_frame_tool/CenterFrameTool
+      Frame: base
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 2.306406021118164
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 0.47038471698760986
+        Y: -0.021276935935020447
+        Z: 0.5481106638908386
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.6303977370262146
+      Target Frame: <Fixed Frame>
+      Yaw: 2.2203972339630127
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1376
+  Hide Left Dock: false
+  Hide Right Dock: false
+  Object Detection:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd0000000200000000000001560000050afc0200000007fb000000100044006900730070006c006100790073010000003b0000050a000000c700fffffffb0000001200530065006c0065006300740069006f006e00000001080000005c0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007300000001cb0000005c0000005c00fffffffb0000000a0056006900650077007300000001b5000000a0000000a000fffffffb0000000800540069006d0065000000025c0000004b0000003700fffffffb0000000a00560069006500770073000000023a000000b2000000a000fffffffb000000100044006900730070006c006100790073000000028c00000190000000c700ffffff00000001000001ba0000050afc0200000003fb0000002400570072006900730074002000430061006d00650072006100200049006d006100670065010000003b000001b20000001600fffffffb00000020004f0062006a00650063007400200044006500740065006300740069006f006e01000001f3000001b70000001600fffffffb000000100054006f00700020005600690065007701000003b0000001950000001600ffffff0000020b0000050a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Top View:
+    collapsed: false
+  Views:
+    collapsed: false
+  Width: 1319
+  Wrist Camera Image:
+    collapsed: false
+  X: 0
+  Y: 27
