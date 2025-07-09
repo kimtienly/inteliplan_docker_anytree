@@ -1,0 +1,31 @@
+version: "3.9"
+services:
+  inteliplan_docker_anytree:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+      target: ${TARGET}
+      args:
+        - UBUNTU_DISTRO=${UBUNTU_DISTRO}
+        - ROS_DISTRO=${ROS_DISTRO}
+        - ANY_RELEASE=${ANY_RELEASE}
+        - USERNAME=${USERNAME:-developer}
+        - UID=${UID}
+        - GID=${GID}
+    image: anytree-docker:${ANY_RELEASE}-ubuntu${UBUNTU_DISTRO}-${TARGET}
+    container_name: inteliplan_docker_anytree
+    environment:
+      - ROS_MASTER_URI=http://${ROBOT_IP}:11311
+      - ROS_IP=${YOUR_IP}
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+    extra_hosts:
+      - "${ROBOT_HOSTNAME}:${ROBOT_IP}"
+    network_mode: "host"
+    tty: true
+    privileged: true
+    volumes:
+      - ../src:/catkin_ws/src
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /tmp/.docker.xauth:/tmp/.docker.xauth:rw
+      - /dev:/dev
