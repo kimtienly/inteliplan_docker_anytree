@@ -1,0 +1,13 @@
+group "ANYmal" {
+    cmd "sim" {
+        exec = "roslaunch inteliplan_interface simulation.launch";
+        host = "localhost";
+    }
+}
+
+group "Z1" {
+    cmd "sim_ctrl" {
+        exec = "/bin/sh -c 'rosparam set /z1/dt 0.0025; ROS_NAMESPACE=z1 rosrun z1_controller sim_ctrl'";
+        host = "localhost";
+    }
+}

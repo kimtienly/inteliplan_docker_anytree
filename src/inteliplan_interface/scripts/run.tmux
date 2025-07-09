@@ -29,7 +29,8 @@ run_tmux_command() {
 
 # ==================== Robot window ====================
 tmux select-window -t $SESSION:robot
-run_tmux_command 0 "roslaunch inteliplan_interface simulation.launch"
+# run_tmux_command 0 "roslaunch inteliplan_interface simulation.launch"
+run_tmux_command 0 "rosrun procman_ros sheriff src/inteliplan_interface/procman_configs/start_simulation_control.pmd --lone-ranger --start-roscore"
 tmux split-window -h
 run_tmux_command 1 "roslaunch anytree_control standalone_arm_control.launch"
 tmux split-window -v
