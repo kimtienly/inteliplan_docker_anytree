@@ -15,7 +15,7 @@ class BaseController():
         self.actionClient = actionlib.SimpleActionClient('position_controller', position_controller.msg.PositionControllerAction)
         self.actionClient.wait_for_server() # Waits until the action server has started up and started
 
-    def executeTasks(self, pose, timeout=100):
+    def executeTasks(self, pose, timeout=60):
         def convert_pose(pos):
             pos_ros = Point(pos[0], pos[1], pos[2])
             quat = quaternion_from_euler (pos[3],pos[4],pos[5])
@@ -42,5 +42,5 @@ class BaseController():
 if __name__ == "__main__":
     rospy.init_node('base_controller')
     contrl = BaseController()
-    re = contrl.executeTasks([0,0,0.57, 0,0,0]) # [x,y,z,r,p,y]
-    print('Success: {}'.format(re))
+    re = contrl.executeTasks([0,-1,0.57, 0,0,-1.57]) # [x,y,z,r,p,y]
+    rospy.loginfo('Success: {}'.format(re))

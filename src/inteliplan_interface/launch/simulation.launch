@@ -10,7 +10,14 @@
         <arg name="environment_config" value="$(arg environment_config)" />
     </include>
 
+    <!-- Launch virtual camera for top view -->
     <include file="$(find inteliplan_interface)/launch/camera.launch"/>
+
+    <!-- Base position controller -->
+    <include file="$(find position_controller)/launch/position_controller.launch">
+        <arg name="output_topic" default="/twist_mux/twist"/>
+        <arg name="output_type" default="twist_stamped"/>
+    </include>
 
     <!-- <node pkg="gazebo_ros" type="gzclient" name="gazebo_gui" output="screen"/> -->
     <!-- Launch RViz with custom config -->
