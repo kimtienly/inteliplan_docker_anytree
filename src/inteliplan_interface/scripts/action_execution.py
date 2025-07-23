@@ -106,7 +106,7 @@ class AnytreeInterface:
             # self.whole_body.move_to_joint_positions({'arm_lift_joint':torso})
         for rot in [-delta_rot,delta_rot,delta_rot]:
         # for rot in [0]:
-            self.base_controller.go_rel(0, 0, rot, 10)
+            self.base_controller.go_rel([0,0,0,0, 0, rot])
             for head in [-delta_head,delta_head]:
                 self.whole_body.move_to_joint_positions({'head_tilt_joint':-math.pi/7+head})
                 # print('Vision returns ',vision_func(obj))
@@ -126,6 +126,7 @@ class AnytreeInterface:
         '''
         args: loc: [x, y, z, r, p, y] of robot base
         '''
+        print('move action called!')
         if absolute:
             re = self.base_controller.go_abs(loc)
         else: #relative pose
@@ -385,8 +386,9 @@ if __name__=='__main__':
     rospy.init_node('anytree_interface_node')
     robot = AnytreeInterface()
     # robot.turn('right')
-    robot.base_controller.go_abs([0,0,0.57,0,0,0])
+    # robot.base_controller.go_abs([0,0,0.57,0,0,0])
     # robot.pick_up_object_client('apple_0')
-    robot.pick_up_object_client('cup_0')
-    # robot.put_object_on_surface_client([1.7, 0.9, 0.55])
+    # robot.pick_up_object_client('cup_0')
+    # robot.put_object_on_surface_client([-1, 1.2, 0.6])
+    robot.put_object_on_surface_client([0.6, -0.1, 0.72])
     # robot.open_drawer()

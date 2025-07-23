@@ -9,11 +9,19 @@
     </physics>
 
     <include>
+      <name>table_01</name>
       <static>true</static>
       <pose>0.9 0.2 0 0 0 0</pose> 
       <uri>model://inteliplan_interface/configs/models/table</uri>
-      <!-- <uri>model://table</uri> -->
     </include>
+
+    <include>
+      <name>table_02</name>
+      <static>true</static>
+      <pose>-1 1.5 0 0 0 1.57</pose> 
+      <uri>model://inteliplan_interface/configs/models/table</uri>
+    </include>
+
 
     <include>
       <static>0</static>

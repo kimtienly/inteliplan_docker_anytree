@@ -10,7 +10,7 @@ import os
 seed=0
 torch.manual_seed(seed)
 
-robot_origin=[0,0,0.57,0,0,1.57]
+robot_origin=[-1,0.6,0.57,0,0,1.57]
 # from huggingface_hub import login
 # hf_token = os.getenv("HF_TOKEN")
 # if hf_token:
@@ -50,10 +50,11 @@ def robot_function(inp):
         elif temp[0]=='go' or temp[0]=='move':
             if temp[1]=='back':
                 re = robot.move(robot_origin)
+                print('result of go back: ',re)
             elif temp[1]=='closer':
                 re = robot.move([0.5,0,0])
         elif temp[0]=='place':
-            # re = robot.put_object_on_surface_client([1.7, 0.85, 0.5]) 
+            re = robot.put_object_on_surface_client([-1, 1.2, 0.75]) 
             pass
         if re == False:
             return False
@@ -65,6 +66,7 @@ rospy.init_node('inteliplan_robot')
 
 # initialize robot poses
 robot =  AnytreeInterface()
+robot.base_controller.go_abs([-0.2, 0, 0.57,0,0,0])
 
 # Intialize the model and tokenizer
 # model_path = "/inteliplan_ws/src/inteliplan_robot/inteliplan_interface/models/fetchme"

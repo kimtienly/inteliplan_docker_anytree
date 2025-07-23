@@ -25,7 +25,8 @@ class BaseController:
         time.sleep(0.1) # such that it updates the init base pose
 
         self.timer = rospy.Timer(rospy.Duration(1),self.rebase_callback)
-    
+        self.moving = False
+
     def base_pose_cb(self, data):        
         pose = data.pose.pose
         x = pose.position.x
@@ -41,10 +42,16 @@ class BaseController:
         args:
             - msg: PositionControllerGoal type
         '''
+        self.moving = True
         self.actionClient.send_goal(msg)
+        print('waiting for result')
+        # self.actionClient.wait_for_result()
         while(self.actionClient.wait_for_result(rospy.Duration.from_sec(1.0)) is False):
             pass
-
+        # while self.actionClient.get_result() is not None:
+        #     rospy.sleep(0.2)
+        print('got result',self.actionClient.get_result())
+        self.moving = False
         return self.actionClient.get_result()
 
     def go_abs(self, abs_pose):
@@ -62,6 +69,7 @@ class BaseController:
         
         self.cached_target_pose = abs_pose
         pose = convert_pose(abs_pose)
+        
         goal = position_controller.msg.PositionControllerGoal(goal=pose)
         rospy.loginfo('Moving to base goal: {}'.format(abs_pose))
         return self.send_command(goal)
@@ -71,10 +79,11 @@ class BaseController:
         return self.go_abs(abs_pose)
     
     def rebase_callback(self, event):
-        if self.cached_target_pose is not None:
-            if self.calc_distance(self.cached_target_pose, self.base_pose) > self.ERROR_TOLERANCE:
-                rospy.logwarn("Distance to cached goal increased to {}. Rebase action executed!".format(self.calc_distance(self.cached_target_pose, self.base_pose)))
-                self.go_abs(self.cached_target_pose)
+        if not self.moving:
+            if self.cached_target_pose is not None:
+                if self.calc_distance(self.cached_target_pose, self.base_pose) > self.ERROR_TOLERANCE:
+                    rospy.logwarn("Distance to cached goal increased to {}. Rebase action executed!".format(self.calc_distance(self.cached_target_pose, self.base_pose)))
+                    self.go_abs(self.cached_target_pose)
 
     def calc_distance(self, p1, p2):
         def normalize_angle(a):
