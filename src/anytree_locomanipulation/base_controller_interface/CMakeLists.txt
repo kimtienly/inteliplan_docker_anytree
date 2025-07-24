@@ -18,12 +18,6 @@ add_action_files(
 
 catkin_python_setup()
 
-## Declare service files
-add_service_files(
-  FILES
-  GoPose.srv
-)
-
 ## Generate messages 
 generate_messages(
   DEPENDENCIES

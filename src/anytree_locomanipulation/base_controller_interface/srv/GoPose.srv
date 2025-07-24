@@ -1,4 +1,0 @@
-std_msgs/Float64MultiArray pose 
-# [x,y,z,r,p,y]
----
-bool success
