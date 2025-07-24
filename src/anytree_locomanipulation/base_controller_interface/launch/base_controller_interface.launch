@@ -1,6 +1,0 @@
-<launch>
-  <node pkg="base_controller_interface"
-        type="base_controller_server.py"
-        name="base_controller"
-        output="screen" />
-</launch>
