@@ -138,7 +138,8 @@ src/z1_sdk/
 src/z1_motion_control/
 src/unitree_ros/
 src/gazebo_models_worlds_collection/
-src/anytree_manipulation/
+src/anytree_manipulation*/
 src/anymal_locomanipulation_ctrl/
 src/bt_drs/
 src/grid_map*/
+src/anytree_locomanipulation/
