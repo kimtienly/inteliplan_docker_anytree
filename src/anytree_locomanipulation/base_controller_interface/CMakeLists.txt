@@ -10,6 +10,12 @@ find_package(catkin REQUIRED COMPONENTS
   position_controller
 )
 
+find_package(actionlib_msgs REQUIRED)
+add_action_files(
+  DIRECTORY action
+  FILES BaseMove.action
+)
+
 catkin_python_setup()
 
 ## Declare service files
@@ -18,15 +24,16 @@ add_service_files(
   GoPose.srv
 )
 
-## Generate messages (no custom msgs, just srv here)
+## Generate messages 
 generate_messages(
   DEPENDENCIES
+  actionlib_msgs
   std_msgs
   geometry_msgs
 )
 
 catkin_package(
-  CATKIN_DEPENDS rospy std_msgs geometry_msgs actionlib message_runtime
+  CATKIN_DEPENDS rospy std_msgs geometry_msgs actionlib actionlib_msgs message_runtime
 )
 
 catkin_install_python(PROGRAMS
@@ -38,3 +45,4 @@ catkin_install_python(PROGRAMS
 install(DIRECTORY src/base_controller_interface/
         DESTINATION ${CATKIN_PACKAGE_PYTHON_DESTINATION}/base_controller_interface
         FILES_MATCHING PATTERN "*.py")
+

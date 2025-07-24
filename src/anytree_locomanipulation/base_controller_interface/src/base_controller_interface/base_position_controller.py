@@ -48,7 +48,10 @@ class BaseController:
         while(self.actionClient.wait_for_result(rospy.Duration.from_sec(1.0)) is False):
             pass
         self.moving = False
-        return self.actionClient.get_result()
+        # checking success manually because navigation_drs/position_controller returns None for self.actionClient.get_result())
+        if self.calc_distance(self.cached_target_pose, self.base_pose) > self.ERROR_TOLERANCE:
+            return False
+        return True
 
     def go_abs(self, abs_pose):
         def convert_pose(pos):
