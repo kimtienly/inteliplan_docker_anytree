@@ -46,7 +46,7 @@ def robot_function(inp):
             re = robot.turn(temp[1])
         elif temp[0]=='search':
             # re = robot.search(temp[-1],vision_func=vision.is_seen)
-            pass
+            passlook_at
         elif temp[0]=='go' or temp[0]=='move':
             if temp[1]=='back':
                 re = robot.move(robot_origin)
@@ -66,7 +66,7 @@ rospy.init_node('inteliplan_robot')
 
 # initialize robot poses
 robot =  AnytreeInterface()
-robot.base_controller.go_abs([-0.2, 0, 0.57,0,0,0])
+robot.send_base_goal([-0.2, 0, 0.57, 0, 0, 0], is_relative_pose=False)
 
 # Intialize the model and tokenizer
 # model_path = "/inteliplan_ws/src/inteliplan_robot/inteliplan_interface/models/fetchme"

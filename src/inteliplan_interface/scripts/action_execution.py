@@ -14,6 +14,7 @@ from tf.transformations import euler_from_quaternion, quaternion_from_euler
 import position_controller.msg
 import time
 from base_position_controller import BaseController
+from base_controller_interface.msg import BaseMoveAction, BaseMoveGoal
 
 class AnytreeInterface:
     """
@@ -26,10 +27,35 @@ class AnytreeInterface:
         self._tf_listener = tf2_ros.TransformListener(self._tf_buffer)
         self.tf_broadcaster = tf2_ros.StaticTransformBroadcaster()
 
-        self.base_controller = BaseController()
-        self.origin = self.base_controller.base_pose
+        # rospy.wait_for_service("/base_controller/go_abs")
+        self.base_client = actionlib.SimpleActionClient('base_move_action', BaseMoveAction)
+        rospy.loginfo("Waiting for action server...")
+        self.base_client.wait_for_server()
+        rospy.loginfo("Base position controller server found!")
 
         rospy.loginfo("Anytree interface initialized!")
+
+    def send_base_goal(self, goal_pose, is_relative_pose):
+        goal = BaseMoveGoal()
+
+        # Set desired pose [x, y, z, roll, pitch, yaw]
+        x, y, z = goal_pose[0], goal_pose[1], goal_pose[2]
+        roll, pitch, yaw = goal_pose[3], goal_pose[4], goal_pose[5]
+        quat = quaternion_from_euler(roll, pitch, yaw)
+
+        goal.pose = Pose()
+        goal.pose.position = Point(x, y, z)
+        goal.pose.orientation = Quaternion(*quat)
+
+        goal.is_relative_pose = is_relative_pose
+
+        rospy.loginfo("Sending goal...")
+        self.base_client.send_goal(goal)
+
+        self.base_client.wait_for_result()
+        result = self.base_client.get_result()
+        rospy.loginfo(f"Base action completed! Success: {result.success}")
+        return result.success
 
     def pick_up_object_client(self, object_pose, approach_axis=None, extend_distance=0, is_bin_bag=False, goal_tf = "pick_up_goal"):
 
@@ -90,8 +116,8 @@ class AnytreeInterface:
         elif direction == 'around':
             angle = -math.pi
         try:
-            self.base_controller.go_rel([0, 0, 0, 0, 0, angle])
-            return True
+            rel_pose = [0, 0, 0, 0, 0, angle]
+            return self.send_base_goal(rel_pose, is_relative_pose=True)
         except:
             return False
 
@@ -106,7 +132,7 @@ class AnytreeInterface:
             # self.whole_body.move_to_joint_positions({'arm_lift_joint':torso})
         for rot in [-delta_rot,delta_rot,delta_rot]:
         # for rot in [0]:
-            self.base_controller.go_rel([0,0,0,0, 0, rot])
+            self.send_base_goal([0,0,0,0, 0, rot], is_relative_pose=True)
             for head in [-delta_head,delta_head]:
                 self.whole_body.move_to_joint_positions({'head_tilt_joint':-math.pi/7+head})
                 # print('Vision returns ',vision_func(obj))
@@ -125,13 +151,9 @@ class AnytreeInterface:
     def move(self, loc, absolute = True):
         '''
         args: loc: [x, y, z, r, p, y] of robot base
+        a representation of API, but works the same way as self.send_base_goal
         '''
-        print('move action called!')
-        if absolute:
-            re = self.base_controller.go_abs(loc)
-        else: #relative pose
-            re = self.base_controller.go_rel(loc)
-        return re
+        return self.send_base_goal(loc, is_relative_pose=not (absolute))
         
     def drawer(self, pull_dis, handle_sub = "yolo_pointcloud/detection_poses"):#
         import tf
@@ -386,9 +408,9 @@ if __name__=='__main__':
     rospy.init_node('anytree_interface_node')
     robot = AnytreeInterface()
     # robot.turn('right')
-    # robot.base_controller.go_abs([0,0,0.57,0,0,0])
     # robot.pick_up_object_client('apple_0')
     # robot.pick_up_object_client('cup_0')
     # robot.put_object_on_surface_client([-1, 1.2, 0.6])
-    robot.put_object_on_surface_client([0.6, -0.1, 0.72])
+    # robot.send_base_goal([0,0,0.57,0,0,1.57],is_relative_pose=False)
+    # robot.put_object_on_surface_client([0.6, -0.1, 0.72])
     # robot.open_drawer()
