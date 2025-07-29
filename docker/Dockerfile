@@ -195,6 +195,19 @@ RUN apt-get update && apt-get install -y \
 RUN  apt-get update && apt install ros-noetic-move-base-msgs
 
 
+# Download example model from Google Drive
+RUN apt-get update && apt-get install -y unzip
+RUN python3 -m pip install gdown
+COPY download_example_model.sh /download_example_model.sh
+RUN chmod +x /download_example_model.sh
+
+# Set entrypoint to run the script before the main process
+ENTRYPOINT ["/download_pretrained_model.sh"]
+CMD ["bash"]
+
+
 ENV DEBIAN_FRONTEND=dialog
 
 USER ${USERNAME}
+
+
