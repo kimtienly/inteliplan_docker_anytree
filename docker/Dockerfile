@@ -3,7 +3,7 @@ ARG ANY_RELEASE=release-23.05
 ##############
 # Base image #
 ##############
-FROM anybotics-docker:${ANY_RELEASE}-ubuntu${UBUNTU_DISTRO}-base as base
+FROM anybotics-docker:${ANY_RELEASE}-ubuntu${UBUNTU_DISTRO}-dev as dev
 
 ARG ROS_DISTRO=noetic
 ARG CATKIN_WORKSPACE_DIR="/catkin_ws"
@@ -13,6 +13,8 @@ SHELL ["/bin/bash", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_DISTRO=${ROS_DISTRO}
+
+USER root
 
 # Realsense Prerequisites
 RUN apt-get update \
@@ -32,29 +34,29 @@ RUN apt-get update \
 ###################
 # Developer image #
 ###################
-FROM base as dev
+# FROM base as dev
 
-ARG USERNAME="developer"
-ARG UID=1000
-ARG GID=1000
+# ARG USERNAME="developer"
+# ARG UID=1000
+# ARG GID=1000
 
-RUN apt-get update \
-    && apt-get install -y sudo \
-    && rm -rf /var/lib/apt/lists/* \
-    && addgroup --gid ${GID} ${USERNAME} \
-    && adduser --disabled-password --gecos '' --uid ${GID} --gid ${GID} ${USERNAME} \
-    && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
-    && chown -R ${UID}:${GID} /home/${USERNAME} \
-    && chown -R ${UID}:${GID} ${CATKIN_WORKSPACE_DIR}
+# RUN apt-get update \
+#     && apt-get install -y sudo \
+#     && rm -rf /var/lib/apt/lists/* \
+#     && addgroup --gid ${GID} ${USERNAME} \
+#     && adduser --disabled-password --gecos '' --uid ${GID} --gid ${GID} ${USERNAME} \
+#     && echo ${USERNAME} ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/${USERNAME} \
+#     && chown -R ${UID}:${GID} /home/${USERNAME} \
+#     && chown -R ${UID}:${GID} ${CATKIN_WORKSPACE_DIR}
 
-COPY "/.vscode" "${CATKIN_WORKSPACE_DIR}/.vscode"
-RUN sed -i -E "s/(ROS_DISTRO=\\$\{1:-\").*(\"\})/\1${ROS_DISTRO}\2/" ${CATKIN_WORKSPACE_DIR}/.vscode/ros_source.bash \
-    && echo "alias rsource='source ${CATKIN_WORKSPACE_DIR}/.vscode/ros_source.bash'" >> /home/${USERNAME}/.bash_aliases \
-    && echo "alias rbuild='(cd ${CATKIN_WORKSPACE_DIR} && catkin build)'" >> /home/${USERNAME}/.bash_aliases \
-    && echo "alias rclean='(cd ${CATKIN_WORKSPACE_DIR} && catkin clean -y)'" >> /home/${USERNAME}/.bash_aliases \
-    && echo "alias real_mode=\"export ROS_MASTER_URI=http://${ROBOT_IP}:11311; export ROS_IP=${YOUR_IP}\"" >> /home/${USERNAME}/.bashrc \
-    && echo "alias sim_mode='unset ROS_MASTER_URI; unset ROS_IP; export ROS_MASTER_URI=http://localhost:11311'" >> /home/${USERNAME}/.bashrc \
-    && echo "source ${CATKIN_WORKSPACE_DIR}/.vscode/ros_source.bash" >> /home/${USERNAME}/.bashrc
+# COPY "/.vscode" "${CATKIN_WORKSPACE_DIR}/.vscode"
+# RUN sed -i -E "s/(ROS_DISTRO=\\$\{1:-\").*(\"\})/\1${ROS_DISTRO}\2/" ${CATKIN_WORKSPACE_DIR}/.vscode/ros_source.bash \
+#     && echo "alias rsource='source ${CATKIN_WORKSPACE_DIR}/.vscode/ros_source.bash'" >> /home/${USERNAME}/.bash_aliases \
+#     && echo "alias rbuild='(cd ${CATKIN_WORKSPACE_DIR} && catkin build)'" >> /home/${USERNAME}/.bash_aliases \
+#     && echo "alias rclean='(cd ${CATKIN_WORKSPACE_DIR} && catkin clean -y)'" >> /home/${USERNAME}/.bash_aliases \
+#     && echo "alias real_mode=\"export ROS_MASTER_URI=http://${ROBOT_IP}:11311; export ROS_IP=${YOUR_IP}\"" >> /home/${USERNAME}/.bashrc \
+#     && echo "alias sim_mode='unset ROS_MASTER_URI; unset ROS_IP; export ROS_MASTER_URI=http://localhost:11311'" >> /home/${USERNAME}/.bashrc \
+#     && echo "source ${CATKIN_WORKSPACE_DIR}/.vscode/ros_source.bash" >> /home/${USERNAME}/.bashrc
 
 
 # ---------------------------------------------------------------
