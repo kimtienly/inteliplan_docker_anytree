@@ -33,7 +33,22 @@ class AnytreeInterface:
         self.base_client.wait_for_server()
         rospy.loginfo("Base position controller server found!")
 
+        self.pickup_client = actionlib.SimpleActionClient("pick_up_object", msg.PickUpObjectAction)
+
+        print("Waiting for pick_up_object server")
+        self.pickup_client.wait_for_server()
+        print("Finished waiting for pick_up_object server")
+        
+        
+        self.place_client = actionlib.SimpleActionClient("put_object_on_surface", msg.PutObjectOnSurfaceAction)
+
+        print("Waiting for put_object_on_surface server")
+        self.place_client.wait_for_server()
+        print("Finished waiting for put_object_on_surface server")
+
         rospy.loginfo("Anytree interface initialized!")
+
+
 
     def send_base_goal(self, goal_pose, is_relative_pose):
         goal = BaseMoveGoal()
@@ -58,37 +73,33 @@ class AnytreeInterface:
         return result.success
 
     def pick_up_object_client(self, object_pose, approach_axis=None, extend_distance=0, is_bin_bag=False, goal_tf = "pick_up_goal"):
-
+        
         self.publish_goal_pose_tf(object_pose, goal_pose_name=goal_tf)
         # goal_tf = object_pose
-        client = actionlib.SimpleActionClient("pick_up_object", msg.PickUpObjectAction)
 
-        print("Waiting for server")
-        client.wait_for_server()
-        print("Finished waiting for server")
 
         # Creates a goal to send to the action server.
         goal_msg = msg.PickUpObjectGoal(goal_tf=goal_tf, approach_axis=approach_axis, extend_distance=extend_distance, is_bin_bag=is_bin_bag)
 
         # Sends the goal to the action server.
-        client.send_goal(goal_msg)
+        self.pickup_client.send_goal(goal_msg)
 
         # Waits for the server to finish performing the action.
-        client.wait_for_result()
+        self.pickup_client.wait_for_result()
 
         rospy.sleep(1)
         # Return the result of executing the action
-        return client.get_result()
+        return self.pickup_client.get_result()
 
-    def put_object_on_surface_client(self, surface_pose, shelf_tf_ref_="", goal_tf = "place_goal"):
-        
-        self.publish_goal_pose_tf(surface_pose, goal_pose_name=goal_tf)
+    def put_object_on_surface_client(self, surface_pose, shelf_tf_ref_="", goal_tf = "place_goal",override_ori=True):
 
-        client = actionlib.SimpleActionClient("put_object_on_surface", msg.PutObjectOnSurfaceAction)
+        if override_ori:
+            trans_stamped = self._tf_buffer.lookup_transform("map", "link00", rospy.Time(), timeout=rospy.Duration(0))
+            rot = trans_stamped.transform.rotation
 
-        print("Waiting for server")
-        client.wait_for_server()
-        print("Finished waiting for server")
+        self.publish_goal_pose_tf(surface_pose, goal_pose_name=goal_tf, ori=rot)
+
+
 
         # Creates a goal to send to the action server.
         # See PutObjectOnSurface.action to see description of these fields
@@ -99,13 +110,13 @@ class AnytreeInterface:
                                             shelf_tf_ref=shelf_tf_ref_)
 
         # Sends the goal to the action server.
-        client.send_goal(goal_msg)
+        self.place_client.send_goal(goal_msg)
 
         # Waits for the server to finish performing the action.
-        client.wait_for_result()
+        self.place_client.wait_for_result()
 
         # Return the result of executing the action
-        return client.get_result()
+        return self.place_client.get_result()
     
 
     def turn(self, direction):
@@ -370,16 +381,19 @@ class AnytreeInterface:
         self.whole_body.move_to_neutral()
 
     def publish_goal_pose_tf(
-        self, p, goal_pose_name
+        self, p, goal_pose_name, ori=None
     ):
         t = Transform()
         t.translation.x = p[0]
         t.translation.y = p[1]
         t.translation.z = p[2]
-        t.rotation.x = 0
-        t.rotation.y = 0
-        t.rotation.z = 0
-        t.rotation.w = 1
+        if ori is None:
+            t.rotation.x = 0
+            t.rotation.y = 0
+            t.rotation.z = 0
+            t.rotation.w = 1
+        else:
+            t.rotation=ori
         # self.publish_tf(t, 'z1/wrist_camera_link', goal_pose_name)
         self.publish_tf(t, 'map', goal_pose_name)
 
