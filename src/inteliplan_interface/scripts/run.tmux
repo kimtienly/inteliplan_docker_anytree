@@ -36,7 +36,7 @@ run_tmux_command 0 "rosrun procman_ros sheriff src/inteliplan_interface/procman_
 tmux select-window -t $SESSION:vision-manipulation
 run_tmux_command 0 "roslaunch orion_recognition recognition.launch"
 tmux split-window -h
-run_tmux_command 1 "roslaunch anytree_locomanipulation locomanipulation_servers.launch"
+run_tmux_command 1 "roslaunch anytree_manipulation locomanipulation_servers.launch"
 
 # ==================== Inteliplan ====================
 tmux select-window -t $SESSION:inteliplan
