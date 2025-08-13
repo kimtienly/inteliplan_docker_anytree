@@ -15,6 +15,9 @@ import position_controller.msg
 import time
 from base_position_controller import BaseController
 from base_controller_interface.msg import BaseMoveAction, BaseMoveGoal
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from sensor_msgs.msg import JointState
+import numpy as np
 
 class AnytreeInterface:
     """
@@ -46,6 +49,16 @@ class AnytreeInterface:
         self.place_client.wait_for_server()
         print("Finished waiting for put_object_on_surface server")
 
+        self.motion_plan_publisher = rospy.Publisher("/motion_plan",
+                                                     JointTrajectory, 
+                                                     queue_size=10,
+                                                     tcp_nodelay=True
+                                                     )
+        self.joint_states_sub = rospy.Subscriber(
+            "/z1_gazebo/joint_states_filtered", JointState, self.joint_states_cb, queue_size=10)
+        self.joint_states_position = None
+        while self.joint_states_position is None:
+            rospy.sleep(1)
         rospy.loginfo("Anytree interface initialized!")
 
 
@@ -133,29 +146,21 @@ class AnytreeInterface:
             return False
 
     def search(self, obj, vision_func):
-        
-        delta_rot = math.pi/8
-        delta_head = math.pi/17
-
-        # self.base_controller.go_rel(0.8,0,0,50) #testing only, must be deleted
-        # for torso in [0.5, 0]:
-        # for torso in [0.2]:
-            # self.whole_body.move_to_joint_positions({'arm_lift_joint':torso})
-        for rot in [-delta_rot,delta_rot,delta_rot]:
-        # for rot in [0]:
-            self.send_base_goal([0,0,0,0, 0, rot], is_relative_pose=True)
-            for head in [-delta_head,delta_head]:
-                self.whole_body.move_to_joint_positions({'head_tilt_joint':-math.pi/7+head})
-                # print('Vision returns ',vision_func(obj))
-                rospy.sleep(2)
-                if vision_func(obj):
-                    print('<vision>: found ')
-                    import time
-                    time.sleep(2)
-                    # rospy.sleep(2)
-                    print('Checking feasibility..')
-                    print('<feasibility>: 1')
-                    return True
+        delta_joint0 = math.pi/3
+        scan_range = np.linspace(-delta_joint0, delta_joint0, 5).tolist()
+        curr_joint = self.joint_states_position
+        for rot in scan_range:
+            print('step:',rot)
+            desire_joint = np.asarray(curr_joint)+np.asarray([rot,0,0,0,0,0])
+            self.send_joint_command(desire_joint)
+            if vision_func(obj):
+                print('<vision>: found ')
+                import time
+                time.sleep(2)
+                # rospy.sleep(2)
+                print('Checking feasibility..')
+                print('<feasibility>: 1')
+                return True
                     
         return False
 
@@ -417,6 +422,25 @@ class AnytreeInterface:
             source_frame_id, child_frame_id, rospy.Time.now(), rospy.Duration(1.0)
         )
     
+    def joint_states_cb(self,data):
+        self.joint_states_position = data.position[:6]
+
+    def send_joint_command(self,joints_position):
+        rospy.loginfo('Sending joint commands: ')
+        print(joints_position)
+
+        dt = 0.02 #Iteration time-step 0.02 corresponds to 50Hz control rate
+        
+        trajectory_msg = JointTrajectory()
+        trajectory_msg.joint_names = ["joint1","joint2","joint3","joint4","joint5","joint6"]
+
+        trajectory_point = JointTrajectoryPoint()
+        trajectory_point.positions = joints_position.copy()
+        trajectory_point.time_from_start = rospy.Duration.from_sec(dt)
+
+        trajectory_msg.points.append(trajectory_point)
+        self.motion_plan_publisher.publish(trajectory_msg)
+
 
 if __name__=='__main__':
     rospy.init_node('anytree_interface_node')
@@ -428,3 +452,4 @@ if __name__=='__main__':
     # robot.send_base_goal([0,0,0.57,0,0,1.57],is_relative_pose=False)
     # robot.put_object_on_surface_client([0.6, -0.1, 0.72])
     # robot.open_drawer()
+    robot.search('none','none')
