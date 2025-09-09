@@ -15,25 +15,63 @@ import position_controller.msg
 import time
 from base_position_controller import BaseController
 from base_controller_interface.msg import BaseMoveAction, BaseMoveGoal
-
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from sensor_msgs.msg import JointState
+from std_msgs.msg import Bool
+import numpy as np
 class AnytreeInterface:
     """
     This class is an interface to HSR, including communicating with Orion manipulation stack and internal command
     """
 
-    def __init__(self):
+    def __init__(self, base_move=True):
         # TF defaults to buffering 10 seconds of transforms. Choose 60 second buffer.
         self._tf_buffer = tf2_ros.Buffer(rospy.Duration.from_sec(60.0))
         self._tf_listener = tf2_ros.TransformListener(self._tf_buffer)
         self.tf_broadcaster = tf2_ros.StaticTransformBroadcaster()
 
-        # rospy.wait_for_service("/base_controller/go_abs")
-        self.base_client = actionlib.SimpleActionClient('base_move_action', BaseMoveAction)
-        rospy.loginfo("Waiting for action server...")
-        self.base_client.wait_for_server()
-        rospy.loginfo("Base position controller server found!")
+        if base_move:
+            self.base_client = actionlib.SimpleActionClient('base_move_action', BaseMoveAction)
+            rospy.loginfo("Waiting for base action server...")
+            self.base_client.wait_for_server()
+            rospy.loginfo("Base position controller server found!")
+
+        self.pickup_client = actionlib.SimpleActionClient("pick_up_object", msg.PickUpObjectAction)
+
+        # print("Waiting for pick_up_object server")
+        # self.pickup_client.wait_for_server()
+        # print("Finished waiting for pick_up_object server")
+        
+        
+        # self.place_client = actionlib.SimpleActionClient("put_object_on_surface", msg.PutObjectOnSurfaceAction)
+
+        # print("Waiting for put_object_on_surface server")
+        # self.place_client.wait_for_server()
+        # print("Finished waiting for put_object_on_surface server")
+
+
+        # self.ee_client = actionlib.SimpleActionClient('ee_command', msg.EECommandAction)
+        # print("Waiting for ee_command server")
+        # self.ee_client.wait_for_server()
+        # print("Finished waiting for ee_command server")
+
+        # self.motion_plan_publisher = rospy.Publisher("/motion_plan",
+        #                                              JointTrajectory, 
+        #                                              queue_size=10,
+        #                                              tcp_nodelay=True
+        #                                              )
+     
+        # self.joint_states_sub = rospy.Subscriber(
+        #     "/z1_gazebo/joint_states_filtered", JointState, self.joint_states_cb, queue_size=10)
+        # self.joint_states_position = None
+        # while self.joint_states_position is None:
+        #     rospy.sleep(1)
+
+        # self.reset_pub = rospy.Publisher('/z1_gazebo/reset_arm_pose', Bool, queue_size=10)
 
         rospy.loginfo("Anytree interface initialized!")
+
+
 
     def send_base_goal(self, goal_pose, is_relative_pose):
         goal = BaseMoveGoal()
@@ -57,38 +95,38 @@ class AnytreeInterface:
         rospy.loginfo(f"Base action completed! Success: {result.success}")
         return result.success
 
-    def pick_up_object_client(self, object_pose, approach_axis=None, extend_distance=0, is_bin_bag=False, goal_tf = "pick_up_goal"):
+    def pick_up_object_client(self, object_pose, approach_axis=None, extend_distance=0, is_bin_bag=False, goal_tf = "pick_up_goal", override_ori=False):
+        
+        # if override_ori:
+        #     trans_stamped = self._tf_buffer.lookup_transform("map", "link00", rospy.Time(), timeout=rospy.Duration(0))
+        #     rot = trans_stamped.transform.rotation
 
         self.publish_goal_pose_tf(object_pose, goal_pose_name=goal_tf)
         # goal_tf = object_pose
-        client = actionlib.SimpleActionClient("pick_up_object", msg.PickUpObjectAction)
 
-        print("Waiting for server")
-        client.wait_for_server()
-        print("Finished waiting for server")
-
+        
         # Creates a goal to send to the action server.
         goal_msg = msg.PickUpObjectGoal(goal_tf=goal_tf, approach_axis=approach_axis, extend_distance=extend_distance, is_bin_bag=is_bin_bag)
 
         # Sends the goal to the action server.
-        client.send_goal(goal_msg)
-
+        self.pickup_client.send_goal(goal_msg)
+        print('goal sent')
         # Waits for the server to finish performing the action.
-        client.wait_for_result()
+        self.pickup_client.wait_for_result()
 
         rospy.sleep(1)
         # Return the result of executing the action
-        return client.get_result()
+        return self.pickup_client.get_result()#
+    
+    def put_object_on_surface_client(self, surface_pose, shelf_tf_ref_="", goal_tf = "place_goal",override_ori=True):
 
-    def put_object_on_surface_client(self, surface_pose, shelf_tf_ref_="", goal_tf = "place_goal"):
-        
-        self.publish_goal_pose_tf(surface_pose, goal_pose_name=goal_tf)
+        if override_ori:
+            trans_stamped = self._tf_buffer.lookup_transform("map", "link00", rospy.Time(), timeout=rospy.Duration(0))
+            rot = trans_stamped.transform.rotation
 
-        client = actionlib.SimpleActionClient("put_object_on_surface", msg.PutObjectOnSurfaceAction)
+        self.publish_goal_pose_tf(surface_pose, goal_pose_name=goal_tf, ori=rot)
 
-        print("Waiting for server")
-        client.wait_for_server()
-        print("Finished waiting for server")
+
 
         # Creates a goal to send to the action server.
         # See PutObjectOnSurface.action to see description of these fields
@@ -99,13 +137,13 @@ class AnytreeInterface:
                                             shelf_tf_ref=shelf_tf_ref_)
 
         # Sends the goal to the action server.
-        client.send_goal(goal_msg)
+        self.place_client.send_goal(goal_msg)
 
         # Waits for the server to finish performing the action.
-        client.wait_for_result()
+        self.place_client.wait_for_result()
 
         # Return the result of executing the action
-        return client.get_result()
+        return self.place_client.get_result()
     
 
     def turn(self, direction):
@@ -114,37 +152,74 @@ class AnytreeInterface:
         elif direction == 'right':
             angle = -math.pi/2
         elif direction == 'around':
-            angle = -math.pi
+            angle = -math.pi+0.3
         try:
             rel_pose = [0, 0, 0, 0, 0, angle]
             return self.send_base_goal(rel_pose, is_relative_pose=True)
         except:
             return False
 
-    def search(self, obj, vision_func):
+    # def search(self, obj, vision_func):
+    def search_old(self):
         
-        delta_rot = math.pi/8
-        delta_head = math.pi/17
 
-        # self.base_controller.go_rel(0.8,0,0,50) #testing only, must be deleted
-        # for torso in [0.5, 0]:
-        # for torso in [0.2]:
-            # self.whole_body.move_to_joint_positions({'arm_lift_joint':torso})
-        for rot in [-delta_rot,delta_rot,delta_rot]:
-        # for rot in [0]:
-            self.send_base_goal([0,0,0,0, 0, rot], is_relative_pose=True)
-            for head in [-delta_head,delta_head]:
-                self.whole_body.move_to_joint_positions({'head_tilt_joint':-math.pi/7+head})
-                # print('Vision returns ',vision_func(obj))
-                rospy.sleep(2)
-                if vision_func(obj):
-                    print('<vision>: found ')
-                    import time
-                    time.sleep(2)
-                    # rospy.sleep(2)
-                    print('Checking feasibility..')
-                    print('<feasibility>: 1')
-                    return True
+        # delta_rot = math.pi/8
+        # for rot in [-delta_rot,delta_rot,delta_rot]:
+        #     self.send_base_goal([0,0,0,0, 0, rot], is_relative_pose=True)
+        
+        delta_arm_rot = math.pi/15
+        ee_to_base = self._tf_buffer.lookup_transform("link00", "end_effector", rospy.Time(), timeout=rospy.Duration(0))
+        # ee_pose = Transform()
+        ee_pose = ee_to_base.transform
+        r = ee_to_base.transform.rotation
+        curr_rot = euler_from_quaternion([r.x,r.y,r.z,r.w]) 
+        for arm_rot in [-delta_arm_rot,0,delta_arm_rot]:
+            new_rot= np.asarray(curr_rot) + np.asarray([0,arm_rot,0])
+            new_quat = quaternion_from_euler(new_rot[0], new_rot[1], new_rot[2])
+            ee_pose.rotation.x=new_quat[0]
+            ee_pose.rotation.y=new_quat[1]
+            ee_pose.rotation.z=new_quat[2]
+            ee_pose.rotation.w=new_quat[3]
+            goal_msg = msg.EECommandGoal(pose=ee_pose)
+            # Sends the goal to the action server.
+            self.ee_client.send_goal(goal_msg)
+            # Waits for the server to finish performing the action.
+            self.ee_client.wait_for_result()
+            # input('enter')
+            rospy.sleep(2)
+            return
+            if vision_func(obj):
+                print('<vision>: found ')
+                import time
+                time.sleep(2)
+                # rospy.sleep(2)
+                print('Checking feasibility..')
+                print('<feasibility>: 1')
+                return True        
+        return False
+    
+    def search(self,obj, vision_func):
+        delta_joint0 = math.pi/6
+        pre_scan_range = np.linspace(0, -delta_joint0, 100).tolist()
+        scan_range = np.linspace(-delta_joint0, delta_joint0, 201).tolist()
+        post_scan_range = np.linspace(delta_joint0, 0, 100).tolist()
+        sweep_range = np.concatenate((pre_scan_range,scan_range,post_scan_range))
+        curr_joint = self.joint_states_position
+        for rot in sweep_range:
+            desire_joint = np.asarray(curr_joint)+np.asarray([rot,0,0,0,0,0])
+            self.send_joint_command(desire_joint)
+            
+            import time
+            time.sleep(0.08)
+            if vision_func(obj):
+                print('<vision>: found ')
+                time.sleep(2)
+                # rospy.sleep(2)
+                print('Checking feasibility..')
+                print('<feasibility>: 1')
+                msg = Bool(data=True)
+                self.reset_pub.publish(msg) 
+                return True
                     
         return False
 
@@ -153,8 +228,8 @@ class AnytreeInterface:
         args: loc: [x, y, z, r, p, y] of robot base
         a representation of API, but works the same way as self.send_base_goal
         '''
-        return self.send_base_goal(loc, is_relative_pose=not (absolute))
-        
+        return self.send_base_goal(loc, is_relative_pose=not (absolute))   
+         
     def drawer(self, pull_dis, handle_sub = "yolo_pointcloud/detection_poses"):#
         import tf
         import numpy as np
@@ -370,16 +445,19 @@ class AnytreeInterface:
         self.whole_body.move_to_neutral()
 
     def publish_goal_pose_tf(
-        self, p, goal_pose_name
+        self, p, goal_pose_name, ori=None
     ):
         t = Transform()
         t.translation.x = p[0]
         t.translation.y = p[1]
         t.translation.z = p[2]
-        t.rotation.x = 0
-        t.rotation.y = 0
-        t.rotation.z = 0
-        t.rotation.w = 1
+        if ori is None:
+            t.rotation.x = 0
+            t.rotation.y = 0
+            t.rotation.z = 0
+            t.rotation.w = 1
+        else:
+            t.rotation=ori
         # self.publish_tf(t, 'z1/wrist_camera_link', goal_pose_name)
         self.publish_tf(t, 'map', goal_pose_name)
 
@@ -403,14 +481,64 @@ class AnytreeInterface:
             source_frame_id, child_frame_id, rospy.Time.now(), rospy.Duration(1.0)
         )
     
+    def joint_states_cb(self,data):
+        self.joint_states_position = data.position[:6]
 
+    def send_joint_command(self,joints_position):
+        # rospy.loginfo('Sending joint commands: ')
+        # print(joints_position)
+
+        dt = 0.02 #Iteration time-step 0.02 corresponds to 50Hz control rate
+        
+        trajectory_msg = JointTrajectory()
+        trajectory_msg.joint_names = ["joint1","joint2","joint3","joint4","joint5","joint6"]
+
+        trajectory_point = JointTrajectoryPoint()
+        trajectory_point.positions = joints_position.copy()
+        trajectory_point.time_from_start = rospy.Duration.from_sec(dt)
+
+        trajectory_msg.points.append(trajectory_point)
+        self.motion_plan_publisher.publish(trajectory_msg)
+
+    
 if __name__=='__main__':
     rospy.init_node('anytree_interface_node')
-    robot = AnytreeInterface()
-    # robot.turn('right')
+    robot = AnytreeInterface(base_move=False)
+    # robot = AnytreeInterface(base_move=True)
+
+    # robot.turn('left')
+    # exit()
+    #search
+    # robot.turn('around')
+    #search
+    # robot.send_base_goal([0.6,0.15,0,0,0,0.3],is_relative_pose=True)
+    #pick
+    # re=robot.send_base_goal([-1.1,2,0.35,0,0,1.6],is_relative_pose=False)
+    # re=robot.send_base_goal([0,0.57,0,0,0,0],is_relative_pose=True)
+    #place            
+
+
+
     # robot.pick_up_object_client('apple_0')
+    # robot.pick_up_object_client([1.4, 0, 0.35])
     # robot.pick_up_object_client('cup_0')
-    # robot.put_object_on_surface_client([-1, 1.2, 0.6])
-    # robot.send_base_goal([0,0,0.57,0,0,1.57],is_relative_pose=False)
+    # robot.put_object_on_surface_client([0, 0.8, 0.6])
+    # robot.send_base_goal([-0.5,0.5,0.57,0,0,1.57],is_relative_pose=True)
     # robot.put_object_on_surface_client([0.6, -0.1, 0.72])
     # robot.open_drawer()
+
+    # robot.send_base_goal([-0.1,0,0,0,0,0.4],is_relative_pose=True)
+    # robot.send_base_goal([0,0,0,0,0,.34],is_relative_pose=True)
+    # robot.send_base_goal([-0.2,0.1,0.35,0,0,0],is_relative_pose=False)
+    
+    # robot.send_base_goal([-1.3,2.3,0.35,0,0,1.57],is_relative_pose=False)
+    # robot.send_base_goal([-1.5,2,0.35,0,0,1.57],is_relative_pose=False)
+    # robot.put_object_on_surface_client([-1.3, 3.1, 0.45])
+    # robot.search_test()
+
+
+    # robot.send_base_goal([0.07,0.08,0,0,0,0.],is_relative_pose=True)
+    trans_stamped = robot._tf_buffer.lookup_transform("map", "juice", rospy.Time(), timeout=rospy.Duration(1))
+    object_to_map = trans_stamped.transform.translation
+    print(object_to_map)
+    robot.pick_up_object_client([object_to_map.x,object_to_map.y,object_to_map.z])
